@@ -22,9 +22,9 @@ public class Knife : MonoBehaviour
             rb.rotation = angleOfAttack;
         }
     }
-    public void throw_(Vector2 vect)
+    public void throw_(Vector2 normVect, float throwerSpeed)
     {
-        rb.AddForce(speed*vect);
+        rb.AddForce((throwerSpeed * normVect) + (speed *normVect));
         angleOfAttack = rb.rotation;
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -44,7 +44,6 @@ public class Knife : MonoBehaviour
 
 
         // transform.parent = other.transform;
-
         rb.velocity = Vector2.zero;
         stuck = other.collider.gameObject;
         // rb.isKinematic = true;
