@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
             if (initialJump)
             {
                 body.AddForce(initialJumpBoost * Time.deltaTime * jumpScalar * jumpVector);
+                collisionCount = 0;
                 initialJump = false;
             }
             else
@@ -99,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnCollisionExit2D(Collision2D other)
     {
-        collisionCount--;
+        collisionCount = other.contactCount;
     }
 
     private Vector2 angleUp(Vector2 vector, float rad)

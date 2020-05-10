@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 2e42eb7f08026d9458774dba40355c88
+guid: 60cb026a1c6eead4281f886de962e964
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -827399811318909895
-    second: Ninja-4-knife_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -43,11 +40,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.8553951, y: 0.070574164}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -88,28 +85,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Ninja-4-knife_0
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 0
-        width: 3
-        height: 8
-      alignment: 9
-      pivot: {x: 0.50000066, y: 0.22331998}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9347c1f514c7484f0800000000000000
-      internalID: -827399811318909895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
