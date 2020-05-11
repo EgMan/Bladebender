@@ -605,7 +605,7 @@ MonoBehaviour:
   throwable: {fileID: 2156359128650056804, guid: bcb62d8c8c454f145b641e7188e6816c,
     type: 3}
   throwFrom: {fileID: 240227271}
-  rigidbody: {fileID: 202332962}
+  body: {fileID: 202332962}
 --- !u!70 &202332967
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1645,7 +1645,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

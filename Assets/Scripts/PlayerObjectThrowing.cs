@@ -6,7 +6,7 @@ public class PlayerObjectThrowing : MonoBehaviour
 {
     public GameObject throwable;
     public Transform throwFrom;
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D body;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -29,7 +29,7 @@ public class PlayerObjectThrowing : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: vectorToTarget);
 
             GameObject obj = Instantiate(throwable, throwFrom.position, targetRotation);
-            obj.GetComponent<Knife>().throw_(shootingVector, rigidbody.velocity.magnitude);
+            obj.GetComponent<Knife>().throw_(shootingVector, body.velocity.magnitude);
         }
     }
 }

@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private int collisionCount = 0;
     private bool initialJump = false;
     private Vector2 up = new Vector2(0f, 1f);
+    private bool jumpQueued = false;
     void Start()
     {
         jumpVector = new Vector2(0, jumpForce);
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
                 body.AddForce(initialJumpBoost * Time.deltaTime * jumpScalar * jumpVector);
                 collisionCount = 0;
                 initialJump = false;
+                jumpQueued = false;
             }
             else
             {
@@ -47,10 +49,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             runScalar = 1f;
+            setDirectionFacing(false);
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             runScalar = -1f;
+            setDirectionFacing(true);
         }
         else
         {
@@ -63,17 +67,33 @@ public class PlayerMovement : MonoBehaviour
                 jumpScalar = 1f;
                 initialJump = true;
             }
+            else
+            {
+                jumpQueued = true;
+            }
         }
         else if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             if (collisionCount != 0)
             {
                 jumpScalar = 1f;
+                if (jumpQueued)
+                {
+                    initialJump = true;
+                }
             }
         }
         else
         {
             jumpScalar = 0f;
+        }
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            jumpQueued = false;
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Knife.allAntiGrav();
         }
     }
     void OnCollisionStay2D(Collision2D other)
@@ -106,6 +126,18 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 angleUp(Vector2 vector, float rad)
     {
         float rotate = -0.55f * rad;
-        return new Vector2(Mathf.Sin(rad+rotate), Mathf.Cos(rad+rotate));
+        return new Vector2(Mathf.Sin(rad + rotate), Mathf.Cos(rad + rotate));
+    }
+
+    private void setDirectionFacing(bool right)
+    {
+        if (right)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }

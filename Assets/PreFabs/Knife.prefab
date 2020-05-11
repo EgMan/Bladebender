@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8547030582448923901}
+  lighting: {fileID: 4080352759075331174}
   speed: 500
 --- !u!61 &7263403058273384689
 BoxCollider2D:
