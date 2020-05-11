@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8319359426417897255}
   - component: {fileID: 7336012561218467740}
   - component: {fileID: 7263403058273384689}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Knife
   m_TagString: Throwable
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2156359128650056804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25160784, y: -1.346214, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.251, y: -1.3524, z: 0}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 7516283649248206638}
   m_Father: {fileID: 0}
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e2a1ef360fa233d478615deebe336985, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60cb026a1c6eead4281f886de962e964, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2513054145abf3245ac95b414e3dea1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0037807524}
+  m_Offset: {x: 0, y: 0.0045043975}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.03, y: 0.12}
+    oldSize: {x: 0.07, y: 0.2}
     newSize: {x: 0.03, y: 0.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.1124385}
+  m_Size: {x: 0.03, y: 0.15050596}
   m_EdgeRadius: 0
 --- !u!114 &7336012561218467740
 MonoBehaviour:
@@ -160,18 +160,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0002361983, y: 0.05697173}
+  m_Offset: {x: 0.0001052022, y: 0.01014697}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.03, y: 0.12}
+    oldSize: {x: 0.07, y: 0.2}
     newSize: {x: 0.03, y: 0.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.009686917, y: 0.0089918375}
+  m_Size: {x: 0.051998854, y: 0.060194414}
   m_EdgeRadius: 0
 --- !u!1 &4080352759075331174
 GameObject:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.69
+  m_Intensity: 0.43
   m_LightVolumeOpacity: 0.518
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -241,10 +241,10 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0.07
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.015274227, y: -0.011675715, z: 0}
-  - {x: -0.006960213, y: -0.054599047, z: 0}
-  - {x: 0.009189308, y: -0.055176258, z: 0}
-  - {x: 0.015537679, y: -0.012139678, z: 0}
-  - {x: 0.016001463, y: 0.038300037, z: 0}
-  - {x: 0.0005377829, y: 0.06198597, z: 0}
-  - {x: -0.014195919, y: 0.036719084, z: 0}
+  - {x: -0.023386508, y: 0.03939654, z: 0}
+  - {x: -0.02324763, y: 0.011109842, z: 0}
+  - {x: 0.024652183, y: 0.010850204, z: 0}
+  - {x: 0.025985673, y: 0.040260807, z: 0}
+  - {x: 0.013743073, y: 0.08001313, z: 0}
+  - {x: -0.000025600195, y: 0.09841825, z: 0}
+  - {x: -0.0138429105, y: 0.08045357, z: 0}
