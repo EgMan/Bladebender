@@ -91,10 +91,6 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpQueued = false;
         }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Knife.allAntiGrav();
-        }
     }
     void OnCollisionStay2D(Collision2D other)
     {

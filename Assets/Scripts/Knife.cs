@@ -5,33 +5,32 @@ using UnityEngine;
 public class Knife : MonoBehaviour
 {
     //Static fields
-    public static float antigravRandomNoise = 10;
     private static List<Knife> allKnifes = new List<Knife>();
-    public static void allAntiGrav()
+
+    public static List<Knife> getKnives()
     {
-        foreach (Knife k in allKnifes)
-        {
-            k.state = States.AntiGrav;
-            //TODO make this random
-            k.rb.AddForce(new Vector2(Random.Range(0f, antigravRandomNoise), Random.Range(0f, antigravRandomNoise)));
-        }
+        return allKnifes;
+    }
+    public static List<Knife> getKnives(Vector2 location, float distance)
+    {
+        return allKnifes.FindAll(x => Vector2.Distance(location, x.transform.position) < distance);
     }
 
-    public Rigidbody2D rb;
-    public GameObject lighting;
-    public float speed = 50f;
-
-    private enum States
+    public enum States
     {
         Thrown,
         Stuck,
         UnStuck,
         AntiGrav
     };
+    public States state;
+    public Rigidbody2D rb;
+    public GameObject lighting;
+    public float speed = 50f;
+
     private float angleOfAttack;
     private GameObject stuck;
     private Vector3 localStuckPosition;
-    private States state;
 
 
     void Start()
@@ -73,8 +72,6 @@ public class Knife : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        print("knife collision");
-
         switch (other.collider.tag)
         {
             case "Player":
