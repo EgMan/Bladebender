@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
-public class KnifeMagic : MonoBehaviour
+public class AbilityAntigrav : Ability
 {
     public static float antigravRandomNoise = 10f;
     public RangeSelector range;
-    void Update()
+
+    public override void activate(List<Knife> knives)
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            Knife.getKnives(transform.position, range.getRange()).ForEach(knife => enterAntiGrav(knife));
-        }
+        knives.ForEach(knife => enterAntiGrav(knife));
     }
     private void enterAntiGrav(Knife k)
     {

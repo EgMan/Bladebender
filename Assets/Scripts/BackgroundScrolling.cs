@@ -14,7 +14,7 @@ public class BackgroundScrolling : MonoBehaviour
     }
 
     // Update is called once per frame
-    private     void LateUpdate()
+    private void LateUpdate()
     {
         Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
         transform.position += deltaMovement * parallaxEffectMultiplier;

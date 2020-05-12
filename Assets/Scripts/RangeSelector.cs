@@ -8,7 +8,7 @@ public class RangeSelector : MonoBehaviour
     public float rangeStep = .01f;
     public float circleDisplayTime = .5f;
 
-    private float selectedRange;
+    public float selectedRange;
 
     private LineRenderer line;
     private int pendingEraceCircleActions = 0;
@@ -56,7 +56,7 @@ public class RangeSelector : MonoBehaviour
 
         line.SetPositions(points);
 
-        pendingEraceCircleActions ++;
+        pendingEraceCircleActions++;
         Invoke("eraceCircleIfTimeUp", circleDisplayTime);
     }
     private void eraceCircleIfTimeUp()

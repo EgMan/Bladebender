@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7504641771313673412}
   - component: {fileID: 7504641771313673411}
   - component: {fileID: 7504641771313673410}
-  - component: {fileID: 7504641771313673408}
   - component: {fileID: 7504641771313673409}
   m_Layer: 0
   m_Name: Player
@@ -179,22 +178,6 @@ MonoBehaviour:
   initialJumpBoost: 60
   jumpForce: 300
   runForce: 700
---- !u!114 &7504641771313673408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7504641771313673465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 559d253af36f38845ad5fe6a85ac8e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwable: {fileID: 2156359128650056804, guid: bcb62d8c8c454f145b641e7188e6816c,
-    type: 3}
-  throwFrom: {fileID: 7504641771350752289}
-  body: {fileID: 7504641771313673412}
 --- !u!70 &7504641771313673409
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -235,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7504641771350752288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.011, y: 0.252, z: 0}
+  m_LocalPosition: {x: 0.001, y: 0.157, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7504641771313673415}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knife : MonoBehaviour
+public abstract class Knife : MonoBehaviour
 {
     //Static fields
     private static List<Knife> allKnifes = new List<Knife>();
@@ -26,7 +26,7 @@ public class Knife : MonoBehaviour
     public States state;
     public Rigidbody2D rb;
     public GameObject lighting;
-    public float speed = 50f;
+    public float speed = 500f;
 
     private float angleOfAttack;
     private GameObject stuck;
@@ -64,7 +64,7 @@ public class Knife : MonoBehaviour
                 throw new System.Exception("Unsupported state, ya dingus");
         }
     }
-    public void throw_(Vector2 normVect, float throwerSpeed)
+    public void launch(Vector2 normVect, float throwerSpeed)
     {
         rb.AddForce((throwerSpeed * normVect) + (speed * normVect));
         angleOfAttack = rb.rotation;
@@ -100,22 +100,6 @@ public class Knife : MonoBehaviour
                     localStuckPosition = transform.position - stuck.transform.position;
                 }
                 break;
-
         }
-        // if (other.collider.tag == "Player" || other.collider.tag == "Throwable")
-        // {
-        //     stuck = null;
-        //     state = States.UnStuck;
-        // }
-        // if (other.collider.gameObject != stuck)
-        // {
-        //     stuck = null;
-        //     state = States.UnStuck;
-        // }
-        // //Otherwise we're stuck
-        // state = States.Stuck;
-        // stuck = other.collider.gameObject;
-        // rb.velocity = Vector2.zero;
-        // localStuckPosition = transform.position - stuck.transform.position;
     }
 }
