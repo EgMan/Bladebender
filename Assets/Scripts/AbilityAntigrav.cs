@@ -5,14 +5,13 @@ public class AbilityAntigrav : Ability
 {
     public static float antigravRandomNoise = 10f;
     public RangeSelector range;
-
-    public override void activate(List<Knife> knives)
+    public override string getName()
     {
-        knives.ForEach(knife => enterAntiGrav(knife));
+        return "Levitate";
     }
-    private void enterAntiGrav(Knife k)
+    public override void activate(Knife knife)
     {
-        k.state = Knife.States.AntiGrav;
-        k.rb.AddForce(new Vector2(Random.Range(0f, antigravRandomNoise), Random.Range(0f, antigravRandomNoise)));
+        knife.state = Knife.States.AntiGrav;
+        knife.rb.AddForce(new Vector2(Random.Range(0f, antigravRandomNoise), Random.Range(0f, antigravRandomNoise)));
     }
 }

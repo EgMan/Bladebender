@@ -15,6 +15,10 @@ public abstract class Knife : MonoBehaviour
     {
         return allKnifes.FindAll(x => Vector2.Distance(location, x.transform.position) < distance);
     }
+    public static List<Knife> getAffectedKnives(Ability ability)
+    {
+        return allKnifes.FindAll(x => x.activeAbility == ability);
+    }
 
     public enum States
     {
@@ -31,6 +35,7 @@ public abstract class Knife : MonoBehaviour
     private float angleOfAttack;
     private GameObject stuck;
     private Vector3 localStuckPosition;
+    private Ability activeAbility = null;
 
 
     void Start()
@@ -63,7 +68,23 @@ public abstract class Knife : MonoBehaviour
             default:
                 throw new System.Exception("Unsupported state, ya dingus");
         }
+        if (activeAbility != null)
+        {
+            activeAbility.update(this);
+        }
     }
+
+    public void applyAbility(Ability ability)
+    {
+        ability.activate(this);
+        activeAbility = ability;
+    }
+
+    public void removeAbility()
+    {
+        activeAbility = null;
+    }
+
     public void launch(Vector2 normVect, float throwerSpeed)
     {
         rb.AddForce((throwerSpeed * normVect) + (speed * normVect));
@@ -101,5 +122,10 @@ public abstract class Knife : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    void OnDestroy()
+    {
+        allKnifes.Remove(this);
     }
 }

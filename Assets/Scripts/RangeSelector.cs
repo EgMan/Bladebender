@@ -4,8 +4,8 @@ public class RangeSelector : MonoBehaviour
 {
     // Update is called once per frame
     public float circleWidth = .025f;
-    public float defaultRange = 1f;
-    public float rangeStep = .01f;
+    public uint defaultRangeSteps = 10;
+    public float rangeStep = .1f;
     public float circleDisplayTime = .5f;
 
     public float selectedRange;
@@ -20,7 +20,7 @@ public class RangeSelector : MonoBehaviour
     {
         line = gameObject.GetComponent<LineRenderer>();
         // line.renderer.material.SetColor("_TintColor", new Color(1, 1, 1, 0.5f));
-        selectedRange = defaultRange;
+        selectedRange = rangeStep*defaultRangeSteps;
     }
     void Update()
     {
@@ -32,7 +32,7 @@ public class RangeSelector : MonoBehaviour
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
         {
             selectedRange -= rangeStep;
-            selectedRange = selectedRange < 0f ? 0f : selectedRange;
+            selectedRange = selectedRange < rangeStep ? rangeStep : selectedRange;
             drawCircle(selectedRange, circleWidth);
         }
     }

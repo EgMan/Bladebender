@@ -20,6 +20,7 @@ public class PlayerObjectThrower : MonoBehaviour
 
         // vector from this object towards the target location
         Vector3 vectorToTarget = mousePos - shootFromPos;
+        vectorToTarget.z = 0f;
 
         // get the rotation that points the Z axis forward, and the Y axis 90 degrees away from the target
         // (resulting in the X axis facing the target)
