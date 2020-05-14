@@ -25,6 +25,10 @@ public class InventoryManager : MonoBehaviour
         {
             useAbility(true);
         }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            Knife.setHoldAbility(null);
+        }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (abilities.Length > 0)
@@ -63,10 +67,7 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                Knife.getAffectedKnives(ability).ForEach
-                (
-                    k => ability.updateHold(k)
-                );
+                Knife.setHoldAbility(ability);
             }
         }
     }

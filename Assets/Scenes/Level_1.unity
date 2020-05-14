@@ -4872,6 +4872,51 @@ Transform:
   m_Father: {fileID: 1045724228}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1664922144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664922145}
+  - component: {fileID: 1664922146}
+  m_Layer: 0
+  m_Name: TeleThrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1664922145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664922144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1982868536}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664922146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664922144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300c4394643b1e64ab1043baeb31f924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translateSpeed: 1.75
+  rotateSpeed: 1
 --- !u!1 &1680227316
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,6 +6035,7 @@ Transform:
   m_Children:
   - {fileID: 1763575864}
   - {fileID: 381032464}
+  - {fileID: 1664922145}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6275,7 +6321,7 @@ PrefabInstance:
     - target: {fileID: 3597085760944431178, guid: 0b0d33359d610004c92512d3f87204d0,
         type: 3}
       propertyPath: abilities.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3597085760944431178, guid: 0b0d33359d610004c92512d3f87204d0,
         type: 3}
@@ -6297,6 +6343,11 @@ PrefabInstance:
       propertyPath: abilities.Array.data[1]
       value: 
       objectReference: {fileID: 381032465}
+    - target: {fileID: 3597085760944431178, guid: 0b0d33359d610004c92512d3f87204d0,
+        type: 3}
+      propertyPath: abilities.Array.data[2]
+      value: 
+      objectReference: {fileID: 1664922146}
     - target: {fileID: 4972174206260248094, guid: 0b0d33359d610004c92512d3f87204d0,
         type: 3}
       propertyPath: m_LocalPosition.x

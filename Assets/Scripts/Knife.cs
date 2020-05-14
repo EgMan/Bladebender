@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Knife : MonoBehaviour
 {
     //Static fields
     private static List<Knife> allKnifes = new List<Knife>();
+    private static Ability holdAbility = null;
 
     public static List<Knife> getKnives()
     {
@@ -14,6 +14,18 @@ public abstract class Knife : MonoBehaviour
     public static List<Knife> getKnives(Vector2 location, float distance)
     {
         return allKnifes.FindAll(x => Vector2.Distance(location, x.transform.position) < distance);
+    }
+    public static void setHoldAbility(Ability ability)
+    {
+        //TODO this is really bad.  refactor/optimize this.
+        if (ability == null && holdAbility != null)
+        {
+            getAffectedKnives(holdAbility).ForEach
+            (
+                k => holdAbility.release(k)
+            );
+        }
+        holdAbility = ability;
     }
     public static List<Knife> getAffectedKnives(Ability ability)
     {
@@ -36,6 +48,7 @@ public abstract class Knife : MonoBehaviour
     private GameObject stuck;
     private Vector3 localStuckPosition;
     private Ability activeAbility = null;
+    private bool queueAbilityRelease = false;
 
 
     void Start()
@@ -71,12 +84,22 @@ public abstract class Knife : MonoBehaviour
         if (activeAbility != null)
         {
             activeAbility.update(this);
+            if (holdAbility == activeAbility)
+            {
+                activeAbility.updateHold(this);
+            }
+            if (queueAbilityRelease)
+            {
+                activeAbility.release(this);
+                queueAbilityRelease = false;
+            }
         }
     }
 
     public void applyAbility(Ability ability)
     {
         ability.activate(this);
+        queueAbilityRelease = false;
         activeAbility = ability;
     }
 
@@ -101,13 +124,18 @@ public abstract class Knife : MonoBehaviour
                 break;
             case "Throwable":
                 stuck = null;
-                if (state == States.Stuck || state == States.Thrown)
+                if (state == States.Stuck)
                 {
                     state = States.UnStuck;
                 }
+                if (state == States.Thrown && other.gameObject.GetComponent<Knife>().state != States.Thrown)
+                {
+                    state = States.UnStuck;
+                }
+
                 break;
             default:
-                if (stuck != null && other.collider.gameObject != stuck)
+                if (state == States.Stuck && stuck != null && other.collider.gameObject != stuck)
                 {
                     stuck = null;
                     state = States.UnStuck;
