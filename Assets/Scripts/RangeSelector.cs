@@ -20,20 +20,23 @@ public class RangeSelector : MonoBehaviour
     {
         line = gameObject.GetComponent<LineRenderer>();
         // line.renderer.material.SetColor("_TintColor", new Color(1, 1, 1, 0.5f));
-        selectedRange = rangeStep*defaultRangeSteps;
+        selectedRange = rangeStep * defaultRangeSteps;
     }
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
+        if (!Input.GetMouseButton(1))
         {
-            selectedRange += rangeStep;
-            drawCircle(selectedRange, circleWidth);
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
-        {
-            selectedRange -= rangeStep;
-            selectedRange = selectedRange < rangeStep ? rangeStep : selectedRange;
-            drawCircle(selectedRange, circleWidth);
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
+            {
+                selectedRange += rangeStep;
+                drawCircle(selectedRange, circleWidth);
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+            {
+                selectedRange -= rangeStep;
+                selectedRange = selectedRange < rangeStep ? rangeStep : selectedRange;
+                drawCircle(selectedRange, circleWidth);
+            }
         }
     }
     private void drawCircle(float radius, float lineWidth)
