@@ -65,6 +65,11 @@ public abstract class Knife : MonoBehaviour
                 rb.gravityScale = 0f;
                 break;
             case States.Stuck:
+                if (stuck == null)
+                {
+                    state = States.UnStuck;
+                    break;
+                }
                 lighting.SetActive(false);
                 rb.gravityScale = 0f;
                 rb.rotation = angleOfAttack;
@@ -154,6 +159,7 @@ public abstract class Knife : MonoBehaviour
 
     void OnDestroy()
     {
+        // TODO this is terrible and is causing a null reference.  Fix this.
         allKnifes.Remove(this);
     }
 }
